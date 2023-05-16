@@ -36,7 +36,6 @@ In the updated code the following items were added:
     
     
     
-    
 # To Do:
 
     1. Redirect all the stdout in the bulk class to QT UI objects
@@ -57,18 +56,22 @@ In the updated code the following items were added:
     1. test_bulkclub.cpp tests whether the information from the warehouse_shoppers.txt file was loaded correctly.
 
     to compile this program use the following command:
-
-    ```bash
+        
+         ```bash
     g++ -g -O0 -o bulkclub_app  test_bulkclub.cpp
     ```
+
+   
 
     2. test_dailypurchase.cpp test whether the information from the daily purchases text filese were loaded and added properly, this accounts for adding together all purchases and calculating rebates
 
     to compile this programe use the following command:
-
-    ```bash
+    
+        ```bash
     g++ -g -O0 -o purchase_app test_dailypurchases.cpp
     ```
+
+    
 
     ## Debugging in VSCode
 
