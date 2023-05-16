@@ -28,7 +28,15 @@ things that need to get done:
 classes and data structures needed for this project are in the bulk.cpp file
 
 
+ssmith will implement (from bulk club document on canvas) 1, 2, 3, 4, 5, 6, 10, 11, 12, 13
 
+michah and will implement: 7, 8, 9, 14
+
+in the bulkclubclass, I implement the output to std::out, therefore please connect the UI object (slot/connect implemented)
+
+please run the unit test, and debug the code, since I did not have time to debug last night
+
+I will add more notes later on. 
 
 
 
