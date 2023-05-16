@@ -5,16 +5,51 @@ bulk club project repo
 
 
 In the updated code the following items were added:
+
 # Classes
+
     class DailyPurchases : this encapsulates all of the daily purchases
 
     class BulkClub: encapsulates all of the business logic for the application
+    
+# Requirements:
 
+    Requirement 1
+    
+    Requirement 2
+    
+    Requirement 3
+    
+    Requirement 4
+    
+    Requirement 5
+    
+    Requirement 6
+    
+    Requirement 10
+    
+    Requirement 11
+    
+    Requirement 12
+    
+    Requirement 13
+    
+    
+    
+    
 # To Do:
 
     1. Redirect all the stdout in the bulk class to QT UI objects
 
     2. Separate code into .hpp and .cpp files
+    
+    3. Debug Unit Tests 
+        
+        This can be done in VSCode
+        
+    4. Requirements 7, 8, 9, 14, 15 
+    
+    5. Do Unit Testing on Items 1, 2, 3, 4, 5, 6, 10, 11, 12, 13
 
 
 
