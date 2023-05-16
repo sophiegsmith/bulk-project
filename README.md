@@ -26,15 +26,10 @@ In the updated code the following items were added:
 ## To Do:
 
     1. Redirect all the stdout in the bulk class to QT UI objects
-
     2. Separate code into .hpp and .cpp files
-    
     3. Debug Unit Tests 
-        
         This can be done in VSCode
-        
     4. Requirements 7, 8, 9, 14, 15 
-    
     5. Do Unit Testing on Items 1, 2, 3, 4, 5, 6, 10, 11, 12, 13
 
 
