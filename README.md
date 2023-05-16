@@ -6,13 +6,13 @@ bulk club project repo
 
 In the updated code the following items were added:
 
-# Classes
+## Classes
 
     class DailyPurchases : this encapsulates all of the daily purchases
 
     class BulkClub: encapsulates all of the business logic for the application
     
-# Requirements:
+## Requirements:
 
     Requirement 1
     
@@ -36,7 +36,7 @@ In the updated code the following items were added:
     
     
     
-# To Do:
+## To Do:
 
     1. Redirect all the stdout in the bulk class to QT UI objects
 
@@ -52,7 +52,8 @@ In the updated code the following items were added:
 
 
 
-# Unit Testing
+## Unit Testing
+
     1. test_bulkclub.cpp tests whether the information from the warehouse_shoppers.txt file was loaded correctly.
 
     to compile this program use the following command:
