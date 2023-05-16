@@ -11,23 +11,14 @@ In the updated code the following items were added:
 ## Requirements:
 
     Requirement 1
-    
     Requirement 2
-    
     Requirement 3
-    
     Requirement 4
-    
     Requirement 5
-    
     Requirement 6
-    
     Requirement 10
-    
     Requirement 11
-    
     Requirement 12
-    
     Requirement 13
     
     
