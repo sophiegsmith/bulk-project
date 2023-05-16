@@ -2,10 +2,11 @@
 
 In the updated code the following items were added:
 
-    ## Classes
-        class DailyPurchases : this encapsulates all of the daily purchases
-        
-        class BulkClub: encapsulates all of the business logic for the application
+# Classes:
+
+    class DailyPurchases : this encapsulates all of the daily purchases
+    
+    class BulkClub: encapsulates all of the business logic for the application
     
 ## Requirements:
 
@@ -49,7 +50,7 @@ In the updated code the following items were added:
 
 ## Unit Testing
 
-    1. test_bulkclub.cpp tests whether the information from the warehouse_shoppers.txt file was loaded correctly.
+1. test_bulkclub.cpp tests whether the information from the warehouse_shoppers.txt file was loaded correctly.
 
     to compile this program use the following command:
         
