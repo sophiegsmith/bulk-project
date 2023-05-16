@@ -1,16 +1,11 @@
 # bulk-project
 
-bulk club project repo
-
-
-
 In the updated code the following items were added:
 
-## Classes
-
-    class DailyPurchases : this encapsulates all of the daily purchases
-
-    class BulkClub: encapsulates all of the business logic for the application
+    ## Classes
+        class DailyPurchases : this encapsulates all of the daily purchases
+        
+        class BulkClub: encapsulates all of the business logic for the application
     
 ## Requirements:
 
