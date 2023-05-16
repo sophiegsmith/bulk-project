@@ -13,4 +13,15 @@ it will automatically clone this into your home directory folder for example:
 
 after this is complete, open QtCreator, click open project, then find the name of it: bulk-project
 
+things that need to get done: 
+1. admin access
+2. displaying sales report 
+3. total purchases
+
+classes and data structures needed for this project are in the bulk.cpp file
+
+
+
+
+
 
