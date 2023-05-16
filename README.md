@@ -9,6 +9,7 @@ In the updated code the following items were added:
     class BulkClub: encapsulates all of the business logic for the application
     
 ## Requirements:
+    These are completed, but require unit testing. See corresponding unit tests. 
 
     Requirement 1
     Requirement 2
