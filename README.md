@@ -32,6 +32,7 @@ In the updated code the following items were added:
         This can be done in VSCode
     4. Requirements 7, 8, 9, 14, 15 
     5. Do Unit Testing on Items 1, 2, 3, 4, 5, 6, 10, 11, 12, 13
+    6. UML diagrams: 1 class diagram, 3 use cases, 3 state cases, 1 activity diagram
 
 
 
