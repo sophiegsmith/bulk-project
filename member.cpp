@@ -35,7 +35,7 @@ double Member::getRebate()
     return rebate;
 }
 
-Date Member::getExpiration()
+Date Member::expirationDate()
 {
     return expiration;
 }
