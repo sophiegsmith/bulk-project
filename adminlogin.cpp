@@ -1,6 +1,6 @@
 
 #include "admin.h"
-#include "ui_admin.h"
+#include "ui_adminlogin.h"
 #include <QMessageBox>
 
 admin::admin(QWidget *parent)

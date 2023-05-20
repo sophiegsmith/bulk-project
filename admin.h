@@ -1,4 +1,7 @@
+//<<<<<<< HEAD
 
+//=======
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 #ifndef ADMIN_H
 #define ADMIN_H
 
@@ -28,3 +31,7 @@ private:
 };
 
 #endif // ADMIN_H
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587

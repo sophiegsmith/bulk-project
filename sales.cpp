@@ -1,6 +1,8 @@
 #include "sales.h"
 #include "ui_sales.h"
-
+#include <iostream>
+#include<QString>
+using namespace std;
 int purchaseNumber;
 string purchaseName;
 int purchaseQuantity;

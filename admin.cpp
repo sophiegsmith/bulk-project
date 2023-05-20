@@ -1,3 +1,7 @@
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 #include "admin.h"
 #include "ui_admin.h"
 #include <QMessageBox>
@@ -31,3 +35,7 @@ void admin::on_pushButton_clicked()
         adminMP->show();
     }
 }
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
