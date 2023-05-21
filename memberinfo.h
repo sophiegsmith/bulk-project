@@ -1,5 +1,6 @@
 #ifndef MEMBERINFO_H
 #define MEMBERINFO_H
+#include "membersearch.h"
 
 #include <QDialog>
 
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::memberinfo *ui;
+    memberSearch *search;
 };
 
 #endif // MEMBERINFO_H
