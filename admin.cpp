@@ -8,7 +8,7 @@
 //=======
 
 #include "admin.h"
-#include "ui_adminlogin.h"
+//#include "ui_adminlogin.h"
 //>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 #include <QMessageBox>
 

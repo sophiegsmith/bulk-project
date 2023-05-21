@@ -10,7 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     adminmainpaige.cpp \
-    main.cpp \
+    #main.cpp
     admin.cpp \
     memberinfo.cpp \
     sales.cpp \
@@ -19,7 +19,7 @@ SOURCES += \
 HEADERS += \
     admin.h \
     adminmainpage.h\
-    mainwindow.h \
+    #mainwindow.h
     memberinfo.h \
     sales.h \
     #date.h \
