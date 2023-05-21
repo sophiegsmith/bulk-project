@@ -39,11 +39,11 @@ void sales::on_lineEdit_3_editingFinished()
 
 void sales::on_pushButton_clicked()
 {
-    StoreDashboard *store = store->getInstance();
-    Item *findItem = store->findItem(purchaseName);
-    if (findItem != NULL)
-    {
-        Sale newSale = Sale(Date{12,12,2022}, purchaseNumber, purchaseName, findItem->price, purchaseQuantity);
-        store->addSale(newSale);
-    }
+//    StoreDashboard *store = store->getInstance();
+//    Item *findItem = store->findItem(purchaseName);
+//    if (findItem != NULL)
+//    {
+//        Sale newSale = Sale(Date{12,12,2022}, purchaseNumber, purchaseName, findItem->price, purchaseQuantity);
+//        store->addSale(newSale);
+//    }
 }

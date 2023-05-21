@@ -14,7 +14,10 @@ class sales : public QDialog
 public:
     explicit sales(QWidget *parent = nullptr);
     ~sales();
-
+    void on_pushButton_clicked();
+    void on_lineEdit_3_editingFinished();
+    void on_lineEdit_2_editingFinished();
+    void on_lineEdit_editingFinished();
 private:
     Ui::sales *ui;
 };

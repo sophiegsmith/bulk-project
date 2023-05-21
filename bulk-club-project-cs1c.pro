@@ -18,18 +18,18 @@ SOURCES += \
 
 HEADERS += \
     admin.h \
-    adminmainpage.h \
+    adminmainpage.h\
+    mainwindow.h \
     memberinfo.h \
-    mainwindow.h
     sales.h \
     #date.h \
 
 FORMS += \
     admin.ui \
-    adminmainpage.h \
+    adminmainpage.ui\
     memberinfo.ui \
     sales.ui
-    mainwindow.ui
+    mainwindow.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
