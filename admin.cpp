@@ -31,14 +31,14 @@ void admin::on_pushButton_clicked()
     QString username = ui->lineEdit_usernameinput->text();
     QString password = ui->lineEdit_2_passwordinput->text();
 
-    if (username != "test" && password != "admin"){
-        QMessageBox::warning(this, "Login", "Username and password is not correct");
-    }
-    else{
+    if (username == "williamwu" && password == "admin1" || username == "sophiesmith" && password == "admin2" || username == "micahusui" && password == "manager"){
         QMessageBox::information(this, "Login", "Successful!");
         hide();
         adminMP = new adminMainPage(this);
         adminMP->show();
+    }
+    else{
+        QMessageBox::warning(this, "Login", "Username and password is not correct");
     }
 }
 //<<<<<<< HEAD

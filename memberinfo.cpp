@@ -18,14 +18,7 @@ memberinfo::~memberinfo()
 
 void memberinfo::on_pushButton_clicked()
 {
-    /*
-    QFile file("warehouse_shoppers.txt");
-    if (!file.open(QIODevice::ReadOnly)){
-        QMessageBox::information(0, "Info", file.errorString());
-    }
-    QTextStream in(&file);
-
-    ui->textBrowser->setText(in.readAll());
-    */
+    search = new memberSearch(this);
+    search -> show();
 }
 

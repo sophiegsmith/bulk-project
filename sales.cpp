@@ -4,7 +4,7 @@
 #include<QString>
 using namespace std;
 int purchaseNumber;
-string purchaseName;
+QString purchaseName;
 int purchaseQuantity;
 
 sales::sales(QWidget *parent) :
@@ -27,7 +27,7 @@ void sales::on_lineEdit_editingFinished()
 
 void sales::on_lineEdit_2_editingFinished()
 {
-    purchaseName = ui->lineEdit_2->text().toStdString();
+    purchaseName = ui->lineEdit_2->text();
 }
 
 
@@ -39,6 +39,7 @@ void sales::on_lineEdit_3_editingFinished()
 
 void sales::on_pushButton_clicked()
 {
+<<<<<<< HEAD
 //    StoreDashboard *store = store->getInstance();
 //    Item *findItem = store->findItem(purchaseName);
 //    if (findItem != NULL)
@@ -46,4 +47,15 @@ void sales::on_pushButton_clicked()
 //        Sale newSale = Sale(Date{12,12,2022}, purchaseNumber, purchaseName, findItem->price, purchaseQuantity);
 //        store->addSale(newSale);
 //    }
+=======
+
 }
+
+
+void sales::on_pushButton_3_clicked()
+{
+    rev = new itemRevenue(this);
+    rev -> show();
+>>>>>>> c97b26aa3f0764c3f64feee9a9403079be73f751
+}
+

@@ -31,7 +31,10 @@ private:
 };
 
 #endif // ADMIN_H
+<<<<<<< HEAD
 //<<<<<<< HEAD
 //=======
 
 //>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
+=======
+>>>>>>> c97b26aa3f0764c3f64feee9a9403079be73f751
