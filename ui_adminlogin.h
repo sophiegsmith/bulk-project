@@ -24,6 +24,10 @@
 
 QT_BEGIN_NAMESPACE
 
+namespace Ui {
+    class admin: public Ui_admin {};
+} // namespace Ui
+
 class Ui_admin
 {
 public:
@@ -112,9 +116,6 @@ public:
 
 };
 
-namespace Ui {
-    class admin: public Ui_admin {};
-} // namespace Ui
 
 QT_END_NAMESPACE
 

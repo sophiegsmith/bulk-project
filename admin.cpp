@@ -1,9 +1,15 @@
 //<<<<<<< HEAD
+//<<<<<<< HEAD
 //=======
 
 //>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 #include "admin.h"
 #include "ui_admin.h"
+//=======
+
+#include "admin.h"
+#include "ui_adminlogin.h"
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 #include <QMessageBox>
 
 admin::admin(QWidget *parent)
@@ -36,6 +42,10 @@ void admin::on_pushButton_clicked()
     }
 }
 //<<<<<<< HEAD
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
 //=======
 
 //>>>>>>> bd2b559065e0a26f730cf772bce1ca4e2d64b587
