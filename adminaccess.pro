@@ -15,6 +15,7 @@ SOURCES += \
     admin.cpp \
     memberinfo.cpp \
     membersearch.cpp \
+    adminmainpage.cpp \
     sales.cpp
 
 HEADERS += \

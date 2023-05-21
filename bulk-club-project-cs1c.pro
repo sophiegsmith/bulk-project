@@ -29,7 +29,7 @@ FORMS += \
     adminmainpage.ui\
     memberinfo.ui \
     sales.ui
-    mainwindow.ui \
+    #mainwindow.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
