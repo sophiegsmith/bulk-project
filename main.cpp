@@ -1,12 +1,13 @@
-#include "mainwindow.h"
+#include "admin.h"
 
 #include <QApplication>
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    admin w;
     w.show();
     return a.exec();
-    qDebug() << "Hello World";
 }
+
