@@ -123,5 +123,3 @@
 
 
 Project Velocity Points: 55
-
-   
