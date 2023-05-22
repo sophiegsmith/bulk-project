@@ -1,4 +1,4 @@
-# 05/21/2023 restored readme from trying to fix merge comflicts
+# 05/21/2023 restored readme from trying to fix merge conflicts
 
 # bulk-project
 
