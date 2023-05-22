@@ -1,5 +1,6 @@
 #include "sales.h"
 #include "ui_sales.h"
+#include "bulkclub.hpp"
 
 int purchaseNumber;
 QString purchaseName;
@@ -45,5 +46,14 @@ void sales::on_pushButton_3_clicked()
 {
     rev = new itemRevenue(this);
     rev -> show();
+}
+
+
+void sales::on_pushButton_2_clicked()
+{
+    BulkClub club;
+    int day = (ui->lineEdit_4->text()).toInt();
+
+    club.displaySalesReport(day);
 }
 
