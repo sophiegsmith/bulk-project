@@ -1,5 +1,17 @@
-# 05/21/2023 restored readme from trying to fix merge comflicts
+# 5/22/2023
+## Change log: 
+* [`SophieS`]Connected backend logic to run the daily sales report. The output of the sales run is displayed in a message box since not UI object was available to output this data.
+* 
+## Debugging/Running
+I needed to manually copy the data files to the application to the build directory. For example, the following is the command for MacOS.   For Windows, it must be something similar. 
+```bash
+cp -vf *.txt ../build-adminaccess-Qt_6_5_0_for_macOS-Debug/adminaccess.app/Contents/MacOS/
+```
 
+# 05/21/2023 
+## Change log
+* [`SophieS`]restored readme from trying to fix merge comflicts
+* [`SophieS`] Added `stories.md` Ten agile stories which include their descriptions, associated tasks, and story points 
 # bulk-project
 
 In the updated code the following items were added:
