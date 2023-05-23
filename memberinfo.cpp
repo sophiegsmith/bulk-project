@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QStandardItemModel>
 #include "bulkclub.hpp"
+#include"adminmainpage.h"
 
 memberinfo::memberinfo(QWidget *parent) :
     QDialog(parent),
@@ -15,7 +16,7 @@ memberinfo::memberinfo(QWidget *parent) :
     ui->tableView->setModel(m_model);
     m_model->setHorizontalHeaderLabels({ "Name", "Number", "Type", "Expiration Date" });
 
-
+    connect(ui->pushButton_6, &QPushButton::clicked, this, &memberinfo::on_pushButton_6_clicked);
 }
 
 memberinfo::~memberinfo()
@@ -111,5 +112,15 @@ void memberinfo::on_pushButton_2_clicked()
         m_model->setItem(row, 3, new QStandardItem(member.expiration_date));
         row++;
     }
+}
+
+
+void memberinfo::on_pushButton_6_clicked()
+{
+    //this is a main page button that will connect back to main page
+    adminMainPage *back = new adminMainPage();
+    back->show();
+
+    this->close();
 }
 

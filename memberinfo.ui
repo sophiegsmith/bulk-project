@@ -152,7 +152,7 @@
      <x>570</x>
      <y>230</y>
      <width>281</width>
-     <height>91</height>
+     <height>93</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -268,6 +268,19 @@
      <width>501</width>
      <height>271</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>10</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Main Page</string>
    </property>
   </widget>
  </widget>
