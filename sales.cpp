@@ -1,6 +1,7 @@
 #include "sales.h"
 #include "ui_sales.h"
 #include "bulkclub.hpp"
+#include"adminmainpage.h"
 
 int purchaseNumber;
 QString purchaseName;
@@ -11,6 +12,7 @@ sales::sales(QWidget *parent) :
     ui(new Ui::sales)
 {
     ui->setupUi(this);
+    connect(ui->pushButton_4, &QPushButton::clicked, this, &sales::on_pushButton_4_clicked);
 }
 
 sales::~sales()
@@ -60,5 +62,16 @@ void sales::on_pushButton_2_clicked()
     ui->textBrowser->setReadOnly(true);
     ui->textBrowser->show();
 
+}
+
+
+void sales::on_pushButton_4_clicked()
+{
+    //this button is for going back to the main page
+    //connect back to adminmainpage
+    adminMainPage *back = new adminMainPage();
+    back->show();
+
+    this->close();
 }
 

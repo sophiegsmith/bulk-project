@@ -1,4 +1,4 @@
-# 5/24/2023
+# 5/23/2023
 ## change log:
 * [`SophieS`]Changed back-end logic to use QString versus std::string; there is a compatibility problem with QT/Clang and std::string.
 * [`SophieS`]Refactored sales UI to include a text box to display the daily sales report.
@@ -9,7 +9,7 @@
 # 5/22/2023
 ## Change log: 
 * [`SophieS`]Connected backend logic to run the daily sales report. The output of the sales run is displayed in a message box since not UI object was available to output this data.
-* 
+* ['SophieS'] Connected a button to sales ui back to main page
 ## Debugging/Running
 I needed to manually copy the data files to the application to the build directory. For example, the following is the command for MacOS.   For Windows, it must be something similar. 
 ```bash
