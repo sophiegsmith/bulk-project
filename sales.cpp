@@ -54,6 +54,11 @@ void sales::on_pushButton_2_clicked()
     BulkClub club;
     int day = (ui->lineEdit_4->text()).toInt();
 
-    club.displaySalesReport(day);
+    QString report = club.displaySalesReport(day);
+
+    ui->textBrowser->setHtml(report);
+    ui->textBrowser->setReadOnly(true);
+    ui->textBrowser->show();
+
 }
 

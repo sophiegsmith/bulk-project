@@ -1,6 +1,7 @@
 /**
  * @brief A class to represent the membership information file.
  */
+#include <QString>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -9,15 +10,19 @@
 #include <iomanip>
 #include <algorithm>
 #include <functional>
+#include <vector>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
 using namespace std;
 
 #include "dailypurchases.hpp"
-
 typedef struct Member {
-    string name;
-    string number;
-    string type;
-    string expiration_date;
+    QString name;
+    QString number;
+    QString type;
+    QString expiration_date;
     double total_spent;
     double rebate_amount;
 }Member;
@@ -65,7 +70,7 @@ public:
      *
      * @param day The day to generate the report.
      */
-    void displaySalesReport(int day);
+    QString displaySalesReport(int day);
 
     /**
      * @brief Generate the sales report (including tax) for a given day by membership type.
@@ -99,6 +104,8 @@ public:
      * @param month The month for which to display expiring members.
      */
     void displayExpiringMembers(const std::string& month) const;
+    std::vector<Member> displayExpiringMembers(int month);
+    std::vector<Member> displayExpiringMembers(int month, int day, int year);
 
     /**
      * @brief Calculate the renewal cost based on the member's current membership information.
@@ -137,8 +144,9 @@ public:
      * @return The number of recommended Executive to Regular membership conversions.
     */
     int countRecommendedExecutiveToRegularConversions() const;
-
     private:
+        std::tm parseDate(const QString& dateStr);
+        vector<string> splitString(const string& line, char delimiter);
         std::vector<Member> members;  /**< The list of members. */
         DailyPurchases dailyPurchases;  /**< The list of total daily sales. */
 

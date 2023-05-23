@@ -1,3 +1,11 @@
+# 5/24/2023
+## change log:
+* [`SophieS`]Changed back-end logic to use QString versus std::string; there is a compatibility problem with QT/Clang and std::string.
+* [`SophieS`]Refactored sales UI to include a text box to display the daily sales report.
+* [`SophieS`]Refactored member info UI to use a table view.
+* [`SophieS`]Added to logic to search for expired members and display them in the table view
+
+
 # 5/22/2023
 ## Change log: 
 * [`SophieS`]Connected backend logic to run the daily sales report. The output of the sales run is displayed in a message box since not UI object was available to output this data.

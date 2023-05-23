@@ -48,4 +48,5 @@ DISTFILES += \
     day4.txt \
     day5.txt \
     day6.txt \
-    day7.txt
+    day7.txt \
+    warehouse_shoppers.txt

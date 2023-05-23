@@ -18,17 +18,32 @@ bool BulkClub::readFromFile(const std::string& filename)
 {
     // implementation to read from file and populate the members vector
     std::ifstream file(filename);
-
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file \"" << filename << "\" for reading.\n";
         return false;
     }
-
-    string name, number, type, expiration_date;
-    while (file >> name >> number >> type >> expiration_date) {
-        Member m = {name, number, type, expiration_date, 0, 0};
+    vector<QString> record;
+    std::string line;
+    while (!file.eof() ){
+        std::getline(file, line);
+        record.push_back(line.c_str());
+        std::cout << line << "\n";
+        if (record.size() == 4){
+            Member m = {};
+            m.expiration_date = record[3];
+            m.name = record[0];
+            m.number = record[1];
+            m.type = record[2];
         members.push_back(m);
+            record.erase(record.begin(),record.end());
+            std::getline(file, line);
     }
+    }
+
+    //while (file >> name >> number >> type >> expiration_date) {
+    //    Member m = Member(name, number, type, expiration_date, 0.0, 0.0);
+    //    members.push_back(m);
+    //}
 
     file.close();
     return true;
@@ -69,7 +84,7 @@ void BulkClub::updateDailySales(void)
         }
     }
 }
-void BulkClub::displaySalesReport(int day)
+QString BulkClub::displaySalesReport(int day)
 {
     DailyPurchases dayPurchases;
     QString buildFolderPath = QCoreApplication::applicationDirPath();
@@ -81,7 +96,7 @@ void BulkClub::displaySalesReport(int day)
 
     if (!dayPurchases.readFromFile(filename)) {
         std::cerr << "Error: Could not read purchases for day " << day << std::endl;
-        return;
+        return "";
     }
     // Display the sales report
     std::cout << "Sales Report for Day " << day << std::endl;
@@ -102,18 +117,18 @@ void BulkClub::displaySalesReport(int day)
                      .arg(totalRevenue, 0, 'f', 2);
 
     // Get the unique members who shopped on the given day
-    std::vector<string> uniqueExecutiveMembers;
-    std::vector<string> uniqueRegularMembers;
+    std::vector<QString> uniqueExecutiveMembers;
+    std::vector<QString> uniqueRegularMembers;
     for (const Purchase& purchase : purchases) {
-        const string& membershipNumber = purchase.membershipNumber;
-        bool isExecutiveMember = false;
+        const QString membershipNumber = purchase.membershipNumber;
+        //bool isExecutiveMember = false;
         for (const Member& member : members) {
             if (member.number == membershipNumber) {
                 if (member.type == "Executive") {
                     if (std::find(uniqueExecutiveMembers.begin(), uniqueExecutiveMembers.end(), membershipNumber) == uniqueExecutiveMembers.end()) {
                         uniqueExecutiveMembers.push_back(membershipNumber);
                     }
-                    isExecutiveMember = true;
+                    //isExecutiveMember = true;
                 } else if (member.type == "Regular") {
                     if (std::find(uniqueRegularMembers.begin(), uniqueRegularMembers.end(), membershipNumber) == uniqueRegularMembers.end()) {
                         uniqueRegularMembers.push_back(membershipNumber);
@@ -127,9 +142,9 @@ void BulkClub::displaySalesReport(int day)
     // Display the list of items and quantities sold on the given day
     std::cout << "Items sold on Day " << day << ":" << std::endl;
     for (const Purchase& purchase : purchases) {
-        std::cout << "Item: " << purchase.itemPurchased << ", Quantity: " << purchase.quantityPurchased << std::endl;
+        std::cout << "Item: " << purchase.itemPurchased.toStdString() << ", Quantity: " << purchase.quantityPurchased<< std::endl;
         QString item = QString("<li>Item: %1, Quantity: %2</li>")
-                       .arg(purchase.itemPurchased.c_str())
+                       .arg(purchase.itemPurchased)
                        .arg(purchase.quantityPurchased);
         report += item;
     }
@@ -142,11 +157,11 @@ void BulkClub::displaySalesReport(int day)
               .arg(day);
 
     for (const Purchase& purchase : purchases) {
-        const string& membershipNumber = purchase.membershipNumber;
+        const QString& membershipNumber = purchase.membershipNumber;
         for (const Member& member : members) {
             if (member.number == membershipNumber) {
-                std::cout << member.name << std::endl;
-                QString memberName = QString("<li>%1</li>").arg(member.name.c_str());
+                std::cout << member.name.toStdString() << std::endl;
+                QString memberName = QString("<li>%1</li>").arg(member.name);
                 report += memberName;
                 break;
             }
@@ -163,11 +178,7 @@ void BulkClub::displaySalesReport(int day)
               .arg(uniqueExecutiveMembers.size())
               .arg(uniqueRegularMembers.size());
 
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("Sales Report");
-    msgBox.setTextFormat(Qt::RichText);
-    msgBox.setText(report);
-    msgBox.exec();
+    return report;
 }
 
 void BulkClub::generateSalesReportByMembershipType(int day)
@@ -186,7 +197,7 @@ void BulkClub::generateSalesReportByMembershipType(int day)
     double regularRevenue = 0.0;
     std::vector<Purchase> purchases = dailyPurchases.getPurchases();
     for (const Purchase& purchase : purchases) {
-        const string& membershipNumber = purchase.membershipNumber;
+        const QString& membershipNumber = purchase.membershipNumber;
         for (const Member& member : members) {
             if (member.number == membershipNumber) {
                 if (member.type == "Executive") {
@@ -208,11 +219,11 @@ void BulkClub::generateSalesReportByMembershipType(int day)
 }
 // Helper function to check if a member's number matches a given membership number
 bool isMemberNumberMatch(const Member& member, const std::string& membershipNumber) {
-    return member.number == membershipNumber;
+    return member.number == membershipNumber.c_str();
 }
 
 void BulkClub::displayTotalPurchases() {
-    std::map<std::string, double> memberPurchases;
+    std::map<QString, double> memberPurchases;
     double grandTotal = 0.0;
 
     for (const Member& member : members) {
@@ -232,7 +243,7 @@ void BulkClub::displayTotalPurchases() {
     std::cout << "Total Purchases by Member (Sorted by Membership Number):" << std::endl;
 
     for (const auto& pair : memberPurchases) {
-        const std::string& membershipNumber = pair.first;
+        const QString& membershipNumber = pair.first;
         const double totalPurchases = pair.second;
 
         // Find the member with the given membership number
@@ -246,8 +257,8 @@ void BulkClub::displayTotalPurchases() {
 
         if (foundMember != nullptr) {
             const Member& member = *foundMember;
-            std::cout << "Member Name: " << member.name << std::endl;
-            std::cout << "Membership Number: " << member.number << std::endl;
+            std::cout << "Member Name: " << member.name.toStdString() << std::endl;
+            std::cout << "Membership Number: " << member.number.toStdString() << std::endl;
             std::cout << "Total Purchases (Including Tax): $" << std::fixed << std::setprecision(2) << totalPurchases << std::endl;
             std::cout << "------------------------------" << std::endl;
         }
@@ -264,7 +275,7 @@ void BulkClub::displayItemSales() const
 
     // Calculate item sales quantity and revenue
     for (const Purchase& purchase : dailyPurchases.getPurchases()) {
-        std::string itemName = purchase.itemPurchased;
+        std::string itemName = purchase.itemPurchased.toStdString();
         double revenue = purchase.salesPrice * purchase.quantityPurchased;
 
         // Check if item already exists in the map
@@ -315,7 +326,7 @@ void BulkClub::displayExecutiveMemberRebates() const {
 
     // Display rebate information for Executive members
     for (const Member& m : executiveMembers) {
-        std::cout << "Membership Number: " << m.number << std::endl;
+        std::cout << "Membership Number: " << m.number.toStdString() << std::endl;
         std::cout << "Rebate Amount: $" << m.rebate_amount << std::endl;
         std::cout << std::endl;
     }
@@ -327,7 +338,7 @@ void BulkClub::displayExpiringMembers(const std::string& month) const {
     // Filter members whose expiration month matches the provided month
     std::vector<Member> expiringMembers;
     for (const Member& m : members) {
-        std::string memberExpirationMonth = m.expiration_date.substr(0, 2);
+        std::string memberExpirationMonth = (m.expiration_date.toStdString()).substr(0, 2);
         if (memberExpirationMonth == month) {
             expiringMembers.push_back(m);
         }
@@ -339,14 +350,40 @@ void BulkClub::displayExpiringMembers(const std::string& month) const {
     // Display expiring members and their renewal cost
     for (const Member& m : expiringMembers) {
         double renewalCost = calculateMembershipRenewalCost(m);
-        std::cout << "Membership Number: " << m.number << std::endl;
-        std::cout << "Name: " << m.name << std::endl;
+        std::cout << "Membership Number: " << m.number.toStdString() << std::endl;
+        std::cout << "Name: " << m.name.toStdString() << std::endl;
         std::cout << "Renewal Cost: $" << std::fixed << std::setprecision(2) << renewalCost << std::endl;
         std::cout << std::endl;
     }
 }
+std::vector<Member> BulkClub::displayExpiringMembers(int month) {
+    std::vector<Member> expiredMembers;
 
+    // Check for expired members
+    for (const Member& member : members) {
+        //std::istringstream(member.expiration_date) >> std::get_time(&expirationDate, "%m/%d/%Y");
+        std::tm expirationDate = parseDate(member.expiration_date);
+        if (expirationDate.tm_mon < month ) {
+            expiredMembers.push_back(member);
+        }
+    }
 
+    return expiredMembers;
+}
+std::vector<Member> BulkClub::displayExpiringMembers(int month, int day, int year) {
+    std::vector<Member> expiredMembers;
+
+    // Check for expired members
+    for (const Member& member : members) {
+        //std::istringstream(member.expiration_date) >> std::get_time(&expirationDate, "%m/%d/%Y");
+        std::tm expirationDate = parseDate(member.expiration_date);
+        if (/*expirationDate.tm_mon < month && expirationDate.tm_mday == day  &&*/ expirationDate.tm_year < year) {
+            expiredMembers.push_back(member);
+        }
+    }
+
+    return expiredMembers;
+}
 
 double BulkClub::calculateMembershipRenewalCost(const Member& member) const {
     // Calculate the renewal cost based on the member's membership type and total spent
@@ -370,7 +407,7 @@ void BulkClub::displayItemSales(const std::string& itemName)
 
     // Iterate through each purchase
     for (const Purchase& purchase : dailyPurchases.getPurchases()) {
-        if (purchase.itemPurchased == itemName) {
+        if (purchase.itemPurchased == itemName.c_str()) {
             totalQuantitySold += purchase.quantityPurchased;
             totalRevenue += purchase.salesPrice * purchase.quantityPurchased;
         }
@@ -384,11 +421,11 @@ void BulkClub::displayItemSales(const std::string& itemName)
 
 void BulkClub::displayTotalPurchasesForMember(const std::string& memberInfo) const {
     bool found = false;
-    double totalPurchases = 0.0;
+    //double totalPurchases = 0.0;
 
     // Search for the member by membership number or name
     for (const Member& member : members) {
-        if (member.number == memberInfo || member.name == memberInfo) {
+        if (member.number == memberInfo.c_str() || member.name == memberInfo.c_str()) {
             found = true;
             const double taxRate = 0.0775; // 7 3/4% sales tax rate
             double totalRevenue = 0.0;
@@ -402,8 +439,8 @@ void BulkClub::displayTotalPurchasesForMember(const std::string& memberInfo) con
                 }
             }
 
-            std::cout << "Member: " << member.name << std::endl;
-            std::cout << "Membership Number: " << member.number << std::endl;
+            std::cout << "Member: " << member.name.toStdString() << std::endl;
+            std::cout << "Membership Number: " << member.number.toStdString() << std::endl;
             std::cout << "Total Purchases (Including Tax): $" << totalRevenue << std::endl;
 
             break; // Stop searching after finding the member
@@ -460,4 +497,25 @@ int BulkClub::countRecommendedExecutiveToRegularConversions() const
     }
 
     return conversionCount;
+}
+
+std::tm BulkClub::parseDate(const QString& dateStr) {
+    std::tm datetm={};
+    std::string date = dateStr.toStdString();
+    std::istringstream iss(date);
+
+    std::string monthStr, dayStr, yearStr;
+    getline(iss, monthStr, '/');
+    getline(iss, dayStr, '/');
+    getline(iss, yearStr);
+
+    int month = std::stoi(monthStr);
+    int day = std::stoi(dayStr);
+    int year = std::stoi(yearStr);
+
+    datetm.tm_year=year;
+    datetm.tm_mon=month;
+    datetm.tm_mday=day;
+
+    return datetm;
 }

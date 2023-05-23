@@ -22,7 +22,7 @@ void admin::on_pushButton_clicked()
     QString username = ui->lineEdit_usernameinput->text();
     QString password = ui->lineEdit_2_passwordinput->text();
 
-    if (username == "williamwu" && password == "admin1" || username == "sophiesmith" && password == "admin2" || username == "micahusui" && password == "manager"){
+    if ((username == "williamwu" && password == "admin1") || (username == "sophiesmith" && password == "admin2") || (username == "micahusui" && password == "manager")){
         QMessageBox::information(this, "Login", "Successful!");
         hide();
         adminMP = new adminMainPage(this);

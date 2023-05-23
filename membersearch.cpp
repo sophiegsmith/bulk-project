@@ -12,3 +12,10 @@ memberSearch::~memberSearch()
 {
     delete ui;
 }
+
+void memberSearch::on_tableWidget_cellActivated(int row, int column)
+{
+    row = row;
+    column = column;
+}
+
