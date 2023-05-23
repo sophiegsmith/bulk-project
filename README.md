@@ -12,6 +12,11 @@ cp -vf *.txt ../build-adminaccess-Qt_6_5_0_for_macOS-Debug/adminaccess.app/Conte
 ## Change log
 * [`SophieS`]restored readme from trying to fix merge comflicts
 * [`SophieS`] Added `stories.md` Ten agile stories which include their descriptions, associated tasks, and story points 
+
+# 05/16/2023 (retroactive change log)
+## Change log
+* [`SophieS`] initial check-in of Qt project and backend code which implements the application requirements (see below), includes unit tests and sample processing of the features
+
 # bulk-project
 
 In the updated code the following items were added:
