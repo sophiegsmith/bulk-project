@@ -314,10 +314,13 @@ void BulkClub::displayExecutiveMemberRebates() const {
     // Create a vector to store Executive members' rebates
     std::vector<Member> executiveMembers;
 
+    double rebateTotal = 0.0;
+
     // Collect rebate information for Executive members
     for (const Member& m : members) {
         if (m.type == "Executive") {
             executiveMembers.push_back(m);
+            rebateTotal += m.rebate_amount;
         }
     }
 
@@ -330,6 +333,8 @@ void BulkClub::displayExecutiveMemberRebates() const {
         std::cout << "Rebate Amount: $" << m.rebate_amount << std::endl;
         std::cout << std::endl;
     }
+
+    QMessageBox::information(nullptr, "Rebate Total", QString("Total Rebate Amount: $%1").arg(rebateTotal));
 }
 
 void BulkClub::displayExpiringMembers(const std::string& month) const {

@@ -5,6 +5,7 @@
 * [`SophieS`] add search query funtionality
 * [`SophieS`] added member contribution into the README.md
 * [`SophieS`] ability to view the TableView with data when you click the button to go to memberinfo UI
+* ['SophieS'] initial QMessage Box for total rebate
 
 # 5/23/2023
 ## change log:

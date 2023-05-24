@@ -93,6 +93,47 @@ void memberinfo::on_tableWidget_cellPressed(int row, int column)
 void memberinfo::on_pushButton_3_clicked()
 {
     //rebate
+    BulkClub club;
+    club.displayExecutiveMemberRebates();
+
+    // Calculate the rebate total
+//    double rebateTotal = 0.0;
+//    std::vector<Member> executiveMembers = club.getMembers();
+//    for (const Member& m : executiveMembers) {
+//        rebateTotal += m.rebate_amount;
+//    }
+
+//    // Display the rebate total in a message box
+//    QMessageBox::information(this, "Rebate Total", QString("Total Rebate Amount: $%1").arg(rebateTotal));
+
+/*
+// Create a vector to store Executive members' rebates
+    std::vector<Member> executiveMembers;
+
+    // Calculate the rebate total
+    double rebateTotal = 0.0;
+
+    // Collect rebate information for Executive members
+    for (const Member& m : members) {
+        if (m.type == "Executive") {
+            executiveMembers.push_back(m);
+            rebateTotal += m.rebate_amount;
+        }
+    }
+
+    // Sort the Executive members by membership number
+    std::sort(executiveMembers.begin(), executiveMembers.end(), compareByMembershipNumber);
+
+    // Display rebate information for Executive members
+    for (const Member& m : executiveMembers) {
+        std::cout << "Membership Number: " << m.number.toStdString() << std::endl;
+        std::cout << "Rebate Amount: $" << m.rebate_amount << std::endl;
+        std::cout << std::endl;
+    }
+
+    // Display the rebate total in a QMessageBox
+    QMessageBox::information(nullptr, "Rebate Total", QString("Total Rebate Amount: $%1").arg(rebateTotal));
+*/
 }
 
 
