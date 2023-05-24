@@ -270,6 +270,7 @@ void memberinfo::on_lineEdit_member_type_returnPressed()
 
 void memberinfo::on_pushButton_member_search_clicked()
 {
+    //added the logic to search member 
     QString first = ui->lineEdit_member_first_name->text();
     QString last = ui->lineEdit_member_last_name->text();
     QString number = ui->lineEdit_member_number->text();
