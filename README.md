@@ -1,6 +1,8 @@
 # 5/24/2023
 ## change log:
 * [`SophieS`] pushed initial search button and displaying into the table view window
+* [`SophieS`] refactored member info page and changed fields
+* [`SophieS`] add search query funtionality
 
 # 5/23/2023
 ## change log:
