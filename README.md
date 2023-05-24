@@ -4,7 +4,7 @@
 * [`SophieS`] refactored member info page and changed fields
 * [`SophieS`] add search query funtionality
 * [`SophieS`] added member contribution into the README.md
-* [`SophieS`] ability to view the TableView with data when you click the button to go to memberinfo UI
+* [`SophieS`] ability to view the TableView with data when you click the button to go to memberinfo UI, and when clicking on the cell, it will fill the parameters correctly
 * ['SophieS'] initial QMessage Box for total rebate
 
 # 5/23/2023

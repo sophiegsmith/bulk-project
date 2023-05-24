@@ -15,7 +15,7 @@ memberinfo::memberinfo(QWidget *parent) :
     m_model = new QStandardItemModel(this);
     ui->tableView->setModel(m_model);
 
-    m_model->setHorizontalHeaderLabels({ "Name","Number", "Type", "Expiration Date" });
+    m_model->setHorizontalHeaderLabels({ "Name","Number", "Type", "Expiration Date"});
     BulkClub club;
     club.readFromFile("warehouse_shoppers.txt");
     std::vector<Member> members = club.getMembers();
@@ -26,6 +26,7 @@ memberinfo::memberinfo(QWidget *parent) :
         m_model->setItem(i, 1, new QStandardItem(member.number));
         m_model->setItem(i, 2, new QStandardItem(member.type));
         m_model->setItem(i, 3, new QStandardItem(member.expiration_date));
+        //m_model->setItem(i, 4, new QStandardItem(member.total_spent));
     }
 
     connect(ui->pushButton_6, &QPushButton::clicked, this, &memberinfo::on_pushButton_6_clicked);
@@ -97,14 +98,14 @@ void memberinfo::on_pushButton_3_clicked()
     club.displayExecutiveMemberRebates();
 
     // Calculate the rebate total
-//    double rebateTotal = 0.0;
-//    std::vector<Member> executiveMembers = club.getMembers();
-//    for (const Member& m : executiveMembers) {
-//        rebateTotal += m.rebate_amount;
-//    }
+    double rebateTotal = 0.0;
+    std::vector<Member> executiveMembers = club.getMembers();
+    for (const Member& m : executiveMembers) {
+        rebateTotal += m.rebate_amount;
+    }
 
-//    // Display the rebate total in a message box
-//    QMessageBox::information(this, "Rebate Total", QString("Total Rebate Amount: $%1").arg(rebateTotal));
+    // Display the rebate total in a message box
+    QMessageBox::information(this, "Rebate Total", QString("Total Rebate Amount: $%1").arg(rebateTotal));
 
 /*
 // Create a vector to store Executive members' rebates
@@ -373,12 +374,12 @@ void memberinfo::on_tableView_clicked(const QModelIndex &index)
     //last name
     std::string secondPart = inputString.substr(underscorePos + 1);
 
-
-    QString firstName = m_model->index(row, 0).data().toString();
-    QString lastName = m_model->index(row, 1).data().toString();
-    QString memberNumber = m_model->index(row, 2).data().toString();
+    QString firstName = QString::fromStdString(firstPart);
+    QString lastName = QString::fromStdString(secondPart);
+    QString memberNumber = m_model->index(row, 1).data().toString();
+    QString expirationDate = m_model->index(row, 2).data().toString();
     QString memberType = m_model->index(row, 3).data().toString();
-    QString expirationDate = m_model->index(row, 4).data().toString();
+
 
 
     // Update the edit controls with the retrieved data

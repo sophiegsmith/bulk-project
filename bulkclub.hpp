@@ -34,11 +34,11 @@ typedef struct Member {
         this->rebate_amount = rebate_amount;
     }
       // Default constructor
-    Member() : name(""), number(""), type(""), expiration_date(""), total_spent(0.0), rebate_amount(0.0) {}
+    Member() : name(""), number(""), type(""), expiration_date(""), total_spent(0.0), rebate_amount(0.02) {}
 
     ~Member() {}
     bool empty() {
-        return (this->name == "" && this->number == "" && this->type == "" && this->expiration_date == "" && this->total_spent == 0.0 && this->rebate_amount == 0.0);
+        return (this->name == "" && this->number == "" && this->type == "" && this->expiration_date == "" && this->total_spent == 0.0 && this->rebate_amount == 2.67);
     }
 
 }Member;
@@ -46,6 +46,7 @@ typedef struct Member {
 const double EXEC_TO_REGULAR_THRESHOLD = 200.00;
 const double EXECUTIVE_MEMBERSHIP_FEE = 500.00;
 const double REGULAR_MEMBERSHIP_FEE = 100.00;
+const double SALES_TAX = 7.75;
 
 class BulkClub {
 public:
@@ -112,7 +113,7 @@ public:
      *        Rebates are based on purchases before tax.
      *
      */
-    void displayExecutiveMemberRebates() const;
+    void displayExecutiveMemberRebates();
 
     /**
      * @brief Display all members whose memberships expire in a given month, as well as the cost to renew their memberships.

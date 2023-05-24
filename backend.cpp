@@ -310,7 +310,7 @@ bool compareByMembershipNumber(const Member& m1, const Member& m2) {
     return m1.number < m2.number;
 }
 
-void BulkClub::displayExecutiveMemberRebates() const {
+void BulkClub::displayExecutiveMemberRebates(){
     // Create a vector to store Executive members' rebates
     std::vector<Member> executiveMembers;
 
