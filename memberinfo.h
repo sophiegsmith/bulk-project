@@ -39,6 +39,26 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_lineEdit_member_first_name_returnPressed();
+
+    void on_lineEdit_member_last_name_returnPressed();
+
+    void on_lineEdit_member_number_returnPressed();
+
+    void on_lineEdit_member_expiration_date_inputRejected();
+
+    void on_pushButton_member_delete_clicked();
+
+    void on_pushButton_add_member_clicked();
+
+    void on_lineEdit_member_type_returnPressed();
+
+    void on_pushButton_member_search_clicked();
+
+    void on_tableView_viewportEntered();
+
+    void on_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::memberinfo *ui;
     memberSearch *search;

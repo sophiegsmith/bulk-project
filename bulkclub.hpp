@@ -25,6 +25,22 @@ typedef struct Member {
     QString expiration_date;
     double total_spent;
     double rebate_amount;
+    Member(QString name, QString number, QString type, QString expiration_date, double total_spent, double rebate_amount) {
+        this->name = name;
+        this->number = number;
+        this->type = type;
+        this->expiration_date = expiration_date;
+        this->total_spent = total_spent;
+        this->rebate_amount = rebate_amount;
+    }
+      // Default constructor
+    Member() : name(""), number(""), type(""), expiration_date(""), total_spent(0.0), rebate_amount(0.0) {}
+
+    ~Member() {}
+    bool empty() {
+        return (this->name == "" && this->number == "" && this->type == "" && this->expiration_date == "" && this->total_spent == 0.0 && this->rebate_amount == 0.0);
+    }
+
 }Member;
 
 const double EXEC_TO_REGULAR_THRESHOLD = 200.00;
@@ -144,6 +160,40 @@ public:
      * @return The number of recommended Executive to Regular membership conversions.
     */
     int countRecommendedExecutiveToRegularConversions() const;
+
+    /**
+     * @brief Save the member list to a file.
+     *
+     * @param filename The name of the file to save the member list to.
+     *
+     */
+    void saveMemberList(const std::string& filename);
+    /**
+     * @brief Get the list of members.
+     *
+     * @return A vector containing all the members.
+     */
+    std::vector<Member> getMembers() const{
+        return members;
+    }
+    /**
+     * @brief Delete a member from the membership list.
+     *
+     * @param memberInfo The membership number or name of the member to delete.
+     * @return True if the member was successfully deleted, false otherwise.
+     */
+    bool deleteMember(const Member& member);
+
+    /**
+     * @brief Find a member in the membership list by membership number or name.
+     *
+     * @param memberInfo The membership number or name of the member to find.
+     * @return A pointer to the found member, or nullptr if the member was not found.
+     */
+    Member* findMember(const Member& member);
+
+    // ... existing member function declarations ...
+
     private:
         std::tm parseDate(const QString& dateStr);
         vector<string> splitString(const string& line, char delimiter);

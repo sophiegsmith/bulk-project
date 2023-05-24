@@ -519,3 +519,44 @@ std::tm BulkClub::parseDate(const QString& dateStr) {
 
     return datetm;
 }
+void BulkClub::saveMemberList(const std::string& filename)  {
+    std::ofstream outFile(filename, std::ios::out | std::ios::trunc);
+    if (!outFile.is_open()) {
+        std::cerr << "Error opening file for writing: " << filename << std::endl;
+        return;
+    }
+
+    for (const auto& member : members) {
+        outFile << member.name.toStdString() << "\n"
+                << member.number.toStdString() << "\n"
+                << member.type.toStdString() << "\n"
+                << member.expiration_date.toStdString() << "\n"
+                << "\n";
+    }
+
+    outFile.close();
+}
+bool BulkClub::deleteMember(const Member& member) {
+    auto it = std::find_if(members.begin(), members.end(), [&](const Member& m) {
+        return (m.number == member.number && m.name == member.name);
+    });
+
+    if (it != members.end()) {
+        members.erase(it);
+        return true;
+    }
+
+    return false;
+}
+
+Member* BulkClub::findMember(const Member& memberInfo) {
+    auto it = std::find_if(members.begin(), members.end(), [&](const Member& member) {
+        return (member.number == memberInfo.number && member.name == memberInfo.name);
+    });
+
+    if (it != members.end()) {
+        return &(*it);
+    }
+
+    return nullptr;
+}
