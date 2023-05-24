@@ -14,20 +14,19 @@ memberinfo::memberinfo(QWidget *parent) :
     ui->setupUi(this);
     m_model = new QStandardItemModel(this);
     ui->tableView->setModel(m_model);
-    //BulkClub club;
-    //Member member = {first + "_" + last, number, type, expiration, 0.0, 0.0};
+
     m_model->setHorizontalHeaderLabels({ "Name","Number", "Type", "Expiration Date" });
-    //club.updateMemberInfo(member);
-    //club.saveMemberList("warehouse_shoppers.txt");
+    BulkClub club;
+    club.readFromFile("warehouse_shoppers.txt");
+    std::vector<Member> members = club.getMembers();
 
-    //std::vector<Member> members = club.getMembers();
-
-//    for(const Member& member: members){
-//        m_model->setItem(0, 0, new QStandardItem(member.name));
-//        m_model->setItem(0, 1, new QStandardItem(member.number));
-//        m_model->setItem(0, 2, new QStandardItem(member.type));
-//        m_model->setItem(0, 3, new QStandardItem(member.expiration_date));
-//    }
+    for (int i = 0; i < members.size(); ++i) {
+        const Member& member = members[i];
+        m_model->setItem(i, 0, new QStandardItem(member.name));
+        m_model->setItem(i, 1, new QStandardItem(member.number));
+        m_model->setItem(i, 2, new QStandardItem(member.type));
+        m_model->setItem(i, 3, new QStandardItem(member.expiration_date));
+    }
 
     connect(ui->pushButton_6, &QPushButton::clicked, this, &memberinfo::on_pushButton_6_clicked);
 }
