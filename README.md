@@ -1,3 +1,7 @@
+# 5/24/2023
+## change log:
+* [`SophieS`] pushed initial search button and displaying into the table view window
+
 # 5/23/2023
 ## change log:
 * [`SophieS`]Changed back-end logic to use QString versus std::string; there is a compatibility problem with QT/Clang and std::string.
