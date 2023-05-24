@@ -3,6 +3,7 @@
 * [`SophieS`] pushed initial search button and displaying into the table view window
 * [`SophieS`] refactored member info page and changed fields
 * [`SophieS`] add search query funtionality
+* [`SophieS`] added member contribution into the README.md
 
 # 5/23/2023
 ## change log:
@@ -10,6 +11,7 @@
 * [`SophieS`]Refactored sales UI to include a text box to display the daily sales report.
 * [`SophieS`]Refactored member info UI to use a table view.
 * [`SophieS`]Added to logic to search for expired members and display them in the table view
+* [`MicahU`] Created UML diagrams for 1 Class diagram, 1 Activity Class Diagram, 3 State Case Diagrams, and 3 Use case diagram
 
 
 # 5/22/2023
@@ -27,6 +29,8 @@ cp -vf *.txt ../build-adminaccess-Qt_6_5_0_for_macOS-Debug/adminaccess.app/Conte
 ## Change log
 * [`SophieS`]restored readme from trying to fix merge comflicts
 * [`SophieS`] Added `stories.md` Ten agile stories which include their descriptions, associated tasks, and story points 
+* [`Will`] created the Uis for login page and allowed capability for group members to login, added Ui for adminmainpage, added UI for member information, added ui for sales information
+* [`Will`] helped with merging conflicts
 
 # 05/16/2023 (retroactive change log)
 ## Change log

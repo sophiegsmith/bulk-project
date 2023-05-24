@@ -302,6 +302,7 @@ void memberinfo::on_pushButton_member_search_clicked()
         m_model->setItem(0, 1, new QStandardItem(found->number));
         m_model->setItem(0, 2, new QStandardItem(found->type));
         m_model->setItem(0, 3, new QStandardItem(found->expiration_date));
+        QMessageBox::critical(nullptr, "Successful!", "Member found.");
     } else {
         QMessageBox::critical(nullptr, "Error", "Member not found.");
         return;
