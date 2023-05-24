@@ -1,5 +1,7 @@
 #include "adminmainpage.h"
 #include "ui_adminmainpage.h"
+#include<QDesktopServices>
+#include<QUrl>
 
 adminMainPage::adminMainPage(QWidget *parent) :
     QDialog(parent),
@@ -26,4 +28,12 @@ void adminMainPage::on_pushButton_sales_clicked()
     report -> show();
 }
 
+
+
+void adminMainPage::on_github_push_button_clicked()
+{
+    //button connects to GitHub page
+    QUrl githubUrl("https://github.com/sophiegsmith/bulk-project");
+    QDesktopServices::openUrl(githubUrl);
+}
 

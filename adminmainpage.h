@@ -21,6 +21,8 @@ private slots:
 
     void on_pushButton_sales_clicked();
 
+    void on_github_push_button_clicked();
+
 private:
     Ui::adminMainPage *ui;
     memberinfo *info;
