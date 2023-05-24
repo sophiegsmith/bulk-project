@@ -18,8 +18,8 @@
 # 5/22/2023
 ## Change log: 
 * [`SophieS`]Connected backend logic to run the daily sales report. The output of the sales run is displayed in a message box since not UI object was available to output this data.
-* ['SophieS'] Connected a button to sales ui back to main page
-* ['SophieS] connected a button to memberinfo ui back to main page
+* [`SophieS`] Connected a button to sales ui back to main page
+* [`SophieS`] connected a button to memberinfo ui back to main page
 ## Debugging/Running
 I needed to manually copy the data files to the application to the build directory. For example, the following is the command for MacOS.   For Windows, it must be something similar. 
 ```bash
