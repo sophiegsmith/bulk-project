@@ -12,3 +12,4 @@ itemRevenue::~itemRevenue()
 {
     delete ui;
 }
+

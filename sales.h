@@ -25,7 +25,7 @@ private slots:
 
     void on_lineEdit_3_editingFinished();
 
-    void on_pushButton_clicked();
+    void on_pushButton_addpur_clicked();
 
     void on_pushButton_3_clicked();
 

@@ -20,5 +20,6 @@ void memberinfo::on_pushButton_clicked()
 {
     search = new memberSearch(this);
     search -> show();
+    this -> close();
 }
 

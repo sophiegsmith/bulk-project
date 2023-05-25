@@ -110,7 +110,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_addpur">
       <property name="text">
        <string>Add Purchase</string>
       </property>
@@ -167,7 +167,11 @@
      <x>60</x>
      <y>250</y>
      <width>423</width>
+<<<<<<< Updated upstream
      <height>104</height>
+=======
+     <height>200</height>
+>>>>>>> Stashed changes
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -188,23 +192,6 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Item Quantity</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_5"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
            <widget class="QLabel" name="label_10">
             <property name="text">
              <string>Item Name</string>
@@ -215,37 +202,23 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_6"/>
+           <widget class="QLineEdit" name="lineEdit_5"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3_searchrev">
+            <property name="text">
+             <string>Search</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>Revenue Pre-Tax</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_7"/>
-          </item>
-         </layout>
+         <widget class="QTableView" name="itemrevenuetable"/>
         </item>
        </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
